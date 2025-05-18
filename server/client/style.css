@@ -1,0 +1,24 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+.product-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.product {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+}
+.product img {
+  width: 100%;
+  height: auto;
+}
+.add-to-cart {
+  background: green;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}

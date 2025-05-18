@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart</title>
+</head>
+<body>
+  <h1>Your Cart</h1>
+  <ul id="cart-items"></ul>
+
+  <script>
+    fetch('http://localhost:3000/cart', { credentials: 'include' })
+      .then(res => res.json())
+      .then(data => {
+        const cartList = document.getElementById('cart-items');
+        if (data.length === 0) {
+          cartList.innerHTML = '<li>Your cart is empty.</li>';
+        } else {
+          data.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.title} - ${item.price}`;
+            cartList.appendChild(li);
+          });
+        }
+      });
+  </script>
+</body>
+</html>
